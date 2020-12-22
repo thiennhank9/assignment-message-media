@@ -37,8 +37,8 @@ export default function GifsScreen() {
       {/* Gifs */}
       <Container className="mt-2">
         <Row>
-          {gifs.map((gif) => (
-            <Col key={gif.id} xs={6} md={4} lg={3}>
+          {gifs.map((gif, index) => (
+            <Col key={index} xs={6} md={4} lg={3}>
               <GifItem
                 gif={gif}
                 onClick={() => {

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import GifImage from "./GifImage";
 import GifInfo from "./GifInfo";
@@ -25,3 +26,17 @@ export default function GifItem(props) {
     </div>
   );
 }
+
+GifItem.propTypes = {
+  gif: PropTypes.shape({
+    title: PropTypes.string,
+    views: PropTypes.number,
+    comments: PropTypes.number,
+    likes: PropTypes.number,
+    avatar: PropTypes.string,
+    displayName: PropTypes.string,
+    images: PropTypes.shape({
+      small: PropTypes.string,
+    }),
+  }),
+};
