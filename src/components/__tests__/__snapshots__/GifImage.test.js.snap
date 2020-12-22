@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifImage - render correctly 1`] = `
+<div
+  className="gif-image-container"
+>
+  <img
+    className="gif-image"
+  />
+</div>
+`;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinners - render correctly 1`] = `
+<div
+  className="d-flex flex-grow-1 justify-content-center align-items-center"
+>
+  <div
+    className="spinner-grow text-secondary"
+  />
+  <div
+    className="spinner-grow text-success"
+  />
+  <div
+    className="spinner-grow text-danger"
+  />
+  <div
+    className="spinner-grow text-warning"
+  />
+  <div
+    className="spinner-grow text-info"
+  />
+  <div
+    className="spinner-grow text-light"
+  />
+  <div
+    className="spinner-grow text-dark"
+  />
+</div>
+`;

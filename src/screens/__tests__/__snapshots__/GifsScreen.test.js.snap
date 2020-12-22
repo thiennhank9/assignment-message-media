@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifScreen 1`] = `
+<div
+  className="screen"
+>
+  <div
+    className="mt-2 container"
+  >
+    <div
+      className="row"
+    />
+  </div>
+  <div
+    className="d-flex justify-content-center my-3"
+  >
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Load More
+    </button>
+  </div>
+</div>
+`;

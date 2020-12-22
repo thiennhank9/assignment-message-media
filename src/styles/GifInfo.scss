@@ -1,0 +1,11 @@
+.gif-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6c757d;
+
+  // Smaller text on small device
+  @media only screen and (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+}
