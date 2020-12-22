@@ -32,4 +32,6 @@ const GifsSlice = createSlice({
   },
 });
 
+GifsSlice.initialState = initialStateGifs;
+
 export default GifsSlice;

@@ -1,6 +1,10 @@
 import configureMockStore from "redux-mock-store";
+import thunk from "redux-thunk";
 
-const getMockStore = configureMockStore();
+const middlewares = [thunk];
+
+const getMockStore = configureMockStore(middlewares);
+
 const mockState = {
   gifs: {
     gifs: [],
@@ -10,6 +14,7 @@ const mockState = {
     error: null,
   },
 };
+
 const mockStore = getMockStore(mockState);
 
 export { mockStore, getMockStore };

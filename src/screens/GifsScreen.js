@@ -9,8 +9,9 @@ import GifItem from "../components/GifItem";
 import Spinners from "../components/Spinners";
 import GifModal from "../components/GifModal";
 import gifs from "../redux/Gifs";
+import { fetchGifs } from "../redux/Gifs/gifsThunk";
 
-const { action, selector } = gifs;
+const { selector } = gifs;
 
 export default function GifsScreen() {
   const dispatch = useDispatch();
@@ -22,13 +23,14 @@ export default function GifsScreen() {
   const [showModal, setShowModal] = useState(false);
   const [selectedGif, setSelectedGif] = useState(null);
 
-  useEffect(() => {
-    dispatch(action.fetchGifs({ page: 1, pageSize: 20 }));
-  }, []);
-
   const onLoadMore = () => {
-    dispatch(action.fetchGifs({ page: page + 1, pageSize }));
+    dispatch(fetchGifs({ page: page + 1, pageSize }));
   };
+
+  // Get gifs first time
+  useEffect(() => {
+    dispatch(fetchGifs({ page: 1, pageSize: 20 }));
+  }, []);
 
   return (
     <div className="screen">

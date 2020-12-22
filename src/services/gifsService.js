@@ -3,7 +3,7 @@ import { getGifsMockMoreInfo, getLimitAndOffset } from "../utils";
 import { GIPHY_API_KEY } from "../configs/giphy";
 
 const gifsService = {
-  fetchGifs: (page = 1, pageSize = 20) => {
+  fetchGifs: (page, pageSize) => {
     const { offset, limit } = getLimitAndOffset(page, pageSize);
     const url = `/gifs/trending`;
 
