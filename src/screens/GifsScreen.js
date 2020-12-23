@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import InfiniteScroll from "react-infinite-scroller";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import GifItem from "../components/GifItem";
 import Spinners from "../components/Spinners";
 import GifModal from "../components/GifModal";
@@ -24,41 +24,34 @@ export default function GifsScreen() {
   const [selectedGif, setSelectedGif] = useState(null);
 
   const onLoadMore = () => {
+    if (fetching) {
+      return;
+    }
     dispatch(fetchGifs({ page: page + 1, pageSize }));
   };
-
-  // Get gifs first time
-  useEffect(() => {
-    dispatch(fetchGifs({ page: 1, pageSize: 20 }));
-  }, []);
 
   return (
     <div className="screen">
       {/* Gifs */}
       <Container className="mt-2">
-        <Row>
-          {gifs.map((gif, index) => (
-            <Col key={index} xs={6} md={4} lg={3}>
-              <GifItem
-                gif={gif}
-                onClick={() => {
-                  setSelectedGif(gif);
-                  setShowModal(true);
-                }}
-              />
-            </Col>
-          ))}
-        </Row>
+        <InfiniteScroll pageStart={0} loadMore={onLoadMore} hasMore>
+          <Row>
+            {gifs.map((gif, index) => (
+              <Col key={index} xs={6} md={4} lg={3}>
+                <GifItem
+                  gif={gif}
+                  onClick={() => {
+                    setSelectedGif(gif);
+                    setShowModal(true);
+                  }}
+                />
+              </Col>
+            ))}
+          </Row>
+        </InfiniteScroll>
       </Container>
 
-      {/* Load more button */}
-      <div className="d-flex justify-content-center my-3">
-        {fetching ? (
-          <Spinners />
-        ) : (
-          <Button onClick={onLoadMore}>Load More</Button>
-        )}
-      </div>
+      {fetching && <Spinners />}
 
       {/* Modal selected */}
       <GifModal

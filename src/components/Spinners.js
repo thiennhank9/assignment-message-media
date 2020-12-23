@@ -2,7 +2,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 export default function Spinners() {
   return (
-    <div className="d-flex flex-grow-1 justify-content-center align-items-center">
+    <div className="d-flex my-3 flex-grow-1 justify-content-center align-items-center">
       <Spinner animation="grow" variant="secondary" />
       <Spinner animation="grow" variant="success" />
       <Spinner animation="grow" variant="danger" />

@@ -5,7 +5,7 @@ const DEFAULT_PAGE_SIZE = 20;
 const initialStateGifs = {
   gifs: [],
   fetching: false,
-  page: 1,
+  page: 0,
   pageSize: DEFAULT_PAGE_SIZE,
   error: null,
 };
